@@ -1,0 +1,42 @@
+#!/bin/sh
+#
+# Copyright 2019 The OpenVPN+PiHole Image Authors All rights reserved.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#     http://www.apache.org/licenses/LICENSE-2.0
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+cat <<EOF
+********************************************************************************
+
+hiya! (ن╹◡╹)੭``
+
+Your client config can be found at:
+
+    /root/client.ovpn
+
+Securely copy your config to your device and import it into your client app.
+
+To create an additional client configuration run:
+
+    /root/01-create-client-config client2
+
+To access the Pihole dashboard, connect to the VPN and visit: pi.hole/admin.
+To set / reset the admin password run:
+
+    pihole -a -p
+
+ヾ(^_^) Happy travels Road Warrior, and if you like this tool, consider
+donating to the authors from which this work is derived:
+
+    https://github.com/Nyr/openvpn-install#donations
+    https://pi-hole.net/donate/
+
+********************************************************************************
+To delete this message of the day: rm -rf $(readlink -f ${0})
+EOF

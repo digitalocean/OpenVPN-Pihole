@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Derived from:
+#     https://github.com/Nyr/openvpn-install
+#     Copyright (c) 2013 Nyr. Released under the MIT License.
+
+# Copyright 2019 The OpenVPN+PiHole Image Authors All rights reserved.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#     http://www.apache.org/licenses/LICENSE-2.0
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+echo "Creating new client config..."
+
+newclient () {
+    cd /etc/openvpn/server/easy-rsa/ || exit 1
+    EASYRSA_CERT_EXPIRE=90 ./easyrsa build-client-full "$1" nopass
+    # Generates the custom client.ovpn
+    cp /etc/openvpn/server/client-common.txt "/root/$1.ovpn"
+    {
+        echo "<ca>"
+        cat /etc/openvpn/server/easy-rsa/pki/ca.crt
+        echo "</ca>"
+        echo "<cert>"
+        sed -ne '/BEGIN CERTIFICATE/,$ p' "/etc/openvpn/server/easy-rsa/pki/issued/$1.crt"
+        echo "</cert>"
+        echo "<key>"
+        cat "/etc/openvpn/server/easy-rsa/pki/private/$1.key"
+        echo "</key>"
+        echo "<tls-auth>"
+        sed -ne '/BEGIN OpenVPN Static key/,$ p' /etc/openvpn/server/ta.key
+        echo "</tls-auth>"
+    } >> "/root/$1.ovpn"
+}
+
+CLIENT="client"
+if [ -n "$1" ]
+then
+    CLIENT="$1"
+fi
+newclient "$CLIENT"
+
+THISFILE='/var/lib/cloud/scripts/per-instance/03-create-client-config'
+LINKPATH='/root/create-client-config.sh'
+if [ ! -f "$LINKPATH" ]
+then
+    ln -s "$THISFILE" "$LINKPATH"
+fi
+
+echo "Client config creation complete (~/$CLIENT.ovpn)."

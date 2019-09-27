@@ -1,0 +1,1 @@
+ca-certificates idn2 iptables-persistent lighttpd netcat openssl openvpn php-cgi php-common php-sqlite3 resolvconf sqlite3 unzip

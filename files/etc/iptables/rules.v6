@@ -1,0 +1,9 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD DROP [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -i eth0 -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -i eth0 -p tcp -m tcp --dport 22 -m recent --update --seconds 60 --hitcount 6 --name SSH --rsource -j DROP
+-A INPUT -i eth0 -p tcp -m tcp --dport 22 -m recent --set --name SSH --rsource -j ACCEPT
+-A INPUT -i eth0 -p tcp -j DROP
+COMMIT
