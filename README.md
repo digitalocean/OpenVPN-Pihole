@@ -38,3 +38,11 @@ Error:
 [Fix](https://freelancing.studio/paramiko-and-rsa-key/):
 
     puttygen id_rsa -O private-openssh -o new.key
+
+## Donations
+
+If you like this tool, consider donating to the authors from which this work
+is derived:
+
+    https://github.com/Nyr/openvpn-install#donations
+    https://pi-hole.net/donate/
