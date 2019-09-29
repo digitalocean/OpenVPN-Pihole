@@ -14,7 +14,7 @@
 cat <<EOF
 ********************************************************************************
 
-hiya! (ن╹◡╹)੭``
+hiya! (ن╹◡╹)੭”
 
 Your client config can be found at:
 
@@ -24,7 +24,11 @@ Securely copy your config to your device and import it into your client app.
 
 To create an additional client configuration run:
 
-    /root/01-create-client-config client2
+    /root/create-client-config.sh client2
+
+NOTE: Certs are only valid for 90 days, so you will need to delete your
+droplet and create a new one at lest once every 3 months. This helps ensure
+you're running the latest software.
 
 To access the Pihole dashboard, connect to the VPN and visit: pi.hole/admin.
 To set / reset the admin password run:
