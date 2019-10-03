@@ -9,6 +9,8 @@ OpenVPN server on demand.
 
 *vpn-down:* Destroy all Pihole + OpenVPN droplets created by `vpn-up`
 
+*termux-setup:* Install and setup `vpn-up` and `vpn-down` in Termux
+
 ## Dependencies
 
 - ccrypt
