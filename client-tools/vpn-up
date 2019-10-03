@@ -12,14 +12,32 @@
 # limitations under the License.
 
 echo "hiya! (ن╹◡╹)੭``"
+echo -n "Checking for API key..."
 if [ ! -f "do-api.cpt" ]
 then
-    echo "do-api.cpt not found"
-    echo "  1. Create an api token (cloud.digitalocean.com/account/api/)"
-    echo "  2. Save it in in the same directory as this script: do-api"
-    echo "  3. Encrypt it with: ccrypt do-api"
-    exit 1
+    echo "do-api.cpt not found:"
+    echo "    1. Create an API token (cloud.digitalocean.com/account/api/)"
+    echo -n "    2. Paste your API token here to encrypt it: "
+    read -r -s key
+    echo
+    echo "$key" > do-api
+    ccrypt do-api
+    echo "    3. Profit!"
+else
+    echo "Done"
 fi
+
+DEPS=(ccrypt curl jq ping ssh)
+echo -n "Checking for dependencies..."
+for i in "${DEPS[@]}"
+do
+    if ! command -v "$i" &> /dev/null
+    then
+        echo "Please install $i package"
+        exit 1
+    fi
+done
+echo "Done"
 
 REGION=""
 if [ -z "$REGION" ]
@@ -70,6 +88,7 @@ echo "Done; Droplet IP is: $IP"
 echo -n "Waiting for droplet network to come up..."
 until ping -q -W 1 -c 1 "$IP" > /dev/null
 do
+    sleep 1
     echo -n "."
 done
 for i in {1..10}
@@ -103,4 +122,4 @@ echo "Done"
 
 echo "ヾ(^_^) byebye!!"
 echo "Press any key to exit..."
-read
+read -r
