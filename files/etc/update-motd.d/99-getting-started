@@ -16,7 +16,7 @@ cat <<EOF
 
 hiya! (ن╹◡╹)੭”
 
-NB: OpenVPN and Pi-hole take about 5-10 minutes after first boot to be fully
+NB: OpenVPN and Pi-hole can take several minutes after first boot to be fully
 setup and configured.
 
 Once initial setup is complete, your client config can be found at:
@@ -30,13 +30,13 @@ To create an additional client configuration run:
     /root/create-client-config.sh client2
 
 NOTE: Certs are only valid for 90 days, so you will need to delete your
-droplet and create a new one at lest once every 3 months. This helps ensure
+droplet and create a new one at least once every 3 months. This helps ensure
 you're running the latest software.
 
-To access the Pihole dashboard, connect to the VPN and visit: pi.hole/admin.
+To access the Pi-hole dashboard, connect to the VPN and visit: pi.hole/admin.
 To set / reset the admin password run:
 
-    pihole -a -p  # Command available after setup is complete
+    pihole -a -p  # Command available after first boot setup is complete
 
 ヾ(^_^) Happy travels Road Warrior, and if you like this tool, consider
 donating to the authors from which this work is derived:
