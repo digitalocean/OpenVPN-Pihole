@@ -16,7 +16,10 @@ cat <<EOF
 
 hiya! (ن╹◡╹)੭”
 
-Your client config can be found at:
+NB: OpenVPN and Pi-hole take about 5-10 minutes after first boot to be fully
+setup and configured.
+
+Once initial setup is complete, your client config can be found at:
 
     /root/client.ovpn
 
@@ -33,7 +36,7 @@ you're running the latest software.
 To access the Pihole dashboard, connect to the VPN and visit: pi.hole/admin.
 To set / reset the admin password run:
 
-    pihole -a -p
+    pihole -a -p  # Command available after setup is complete
 
 ヾ(^_^) Happy travels Road Warrior, and if you like this tool, consider
 donating to the authors from which this work is derived:
