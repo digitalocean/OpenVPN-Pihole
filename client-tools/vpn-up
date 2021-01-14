@@ -79,8 +79,6 @@ while [ -z "$IP" ] || [ "$IP" == 'null' ]
 do
 DROPLET="$(curl -s -X GET -H "Authorization: Bearer $TOKEN" \
     https://api.digitalocean.com/v2/droplets/"$ID")"
-# the following was modified to iterate through a list of IP addresses to find an array element
-# with "type":"public" and then select the ip address from that element     -@kindaran
 IP="$(echo "$DROPLET" | jq -r '.droplet.networks.v4[] | select(.type=="public") | .ip_address')"
 sleep 1
 echo -n "."
