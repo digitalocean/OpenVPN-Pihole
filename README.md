@@ -1,5 +1,7 @@
 # OpenVPN + Pihole
 
+**NB: Working terraform provisioning of Droplet Image that uses Wireguard instead of OpenVPN. Will be based on Ubuntu Jammy (22.04). I'm creating the image on a $4 Droplet. I will be testing ipv6. Hoping I can knock this out quickly but we'll see.**
+
 https://marketplace.digitalocean.com/apps/openvpn-pihole
 
 ## Setup
