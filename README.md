@@ -1,8 +1,6 @@
 # OpenVPN + Pihole
 
-**NB: Working on [Packer for Droplet Image](https://github.com/digitalocean/marketplace-pi-hole-vpn) that uses Wireguard instead of OpenVPN. Will be based on Ubuntu Jammy (22.04) or Debian 11. I'm creating the image on a $4 Droplet. I will be testing ipv6. Hoping I can knock this out quickly but we'll see.**
-
-https://marketplace.digitalocean.com/apps/openvpn-pihole
+**NB: Working on [New Droplet Image](https://github.com/digitalocean/marketplace-pi-hole-vpn) that uses Wireguard instead of OpenVPN. PR can be found [here](https://github.com/digitalocean/marketplace-pi-hole-vpn/pull/1). Once this lands, I'll be EoLing this image in favor of the new one.
 
 ## Setup
 
