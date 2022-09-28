@@ -1,6 +1,6 @@
 # OpenVPN + Pihole
 
-**NB: Working on [New Droplet Image](https://github.com/digitalocean/marketplace-pi-hole-vpn) that uses Wireguard instead of OpenVPN. PR can be found [here](https://github.com/digitalocean/marketplace-pi-hole-vpn/pull/1). Once this lands, I'll be EoLing this image in favor of the new one.
+**NB: This iamge is deprecated. It's successor (based on WireGuard) can be built [here](https://github.com/digitalocean/marketplace-pi-hole-vpn). A DigitalOcean Marketplace image will be posted soon.** 
 
 ## Setup
 
