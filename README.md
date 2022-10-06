@@ -1,6 +1,6 @@
 # OpenVPN + Pihole
 
-**NB: This iamge is deprecated. It's successor (based on WireGuard) can be built [here](https://github.com/digitalocean/marketplace-pi-hole-vpn). A DigitalOcean Marketplace image will be posted soon.** 
+**NB: This iamge is no longer supported / maintained. It's successor (based on WireGuard) can be built [here](https://github.com/digitalocean/marketplace-pi-hole-vpn).** 
 
 ## Setup
 
